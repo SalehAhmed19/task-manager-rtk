@@ -28,7 +28,7 @@ const Tasks = () => {
               Add Task
             </button>
             <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={"Hello"}>
-              <AddTaskModal />
+              <AddTaskModal setIsOpen={setIsOpen} />
             </Modal>
 
             <div className="w-10 h-10 overflow-hidden rounded-xl">
