@@ -3,6 +3,7 @@ import MyTasks from "../components/tasks/MyTasks";
 import TaskCard from "../components/tasks/TaskCard";
 import Modal from "../components/ui/modal";
 import { useState } from "react";
+import AddTaskModal from "../components/tasks/AddTaskModal.jsx";
 
 const Tasks = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,9 @@ const Tasks = () => {
             >
               Add Task
             </button>
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
+            <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={"Hello"}>
+              <AddTaskModal />
+            </Modal>
 
             <div className="w-10 h-10 overflow-hidden rounded-xl">
               <img
