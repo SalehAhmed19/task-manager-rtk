@@ -45,3 +45,5 @@ const tasksSlice = createSlice({
 export const { addTask, removeTask, updateStatus } = tasksSlice.actions;
 
 export default tasksSlice.reducer;
+
+// TODO: 1. One click to done the process 2. Open a modal and show the details of the task 3. Show user based task
