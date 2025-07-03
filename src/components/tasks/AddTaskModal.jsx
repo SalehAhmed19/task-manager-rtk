@@ -1,8 +1,18 @@
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { addTask } from "../../RTK/features/tasks/tasksSlice";
 
 export default function AddTaskModal({ setIsOpen }) {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, reset } = useForm();
+
+  const dispatch = useDispatch();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(addTask(data));
+    // reset();
+    setIsOpen(false);
+  };
   return (
     <div className="my-3">
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-3">
@@ -49,8 +59,8 @@ export default function AddTaskModal({ setIsOpen }) {
             <option value="assigned-to" disabled>
               Assigned to
             </option>
-            <option value="saleh-ahmed-mahin">Saleh Ahmed Mahin</option>
-            <option value="sakib-al-hasan">Sakib Al Hasan</option>
+            <option value="Saleh Ahmed Mahin">Saleh Ahmed Mahin</option>
+            <option value="Sakib Al Hasan">Sakib Al Hasan</option>
           </select>
         </div>
 
@@ -72,7 +82,10 @@ export default function AddTaskModal({ setIsOpen }) {
         </div>
         <div className="flex gap-5">
           <button
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              setIsOpen(false);
+              reset();
+            }}
             className="w-full text-white bg-red-500 btn"
           >
             Cancel
